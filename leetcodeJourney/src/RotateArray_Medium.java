@@ -27,6 +27,24 @@ public class RotateArray_Medium {
 
      }
 
+     //learned solution, ako hovoril nick, niektore veci tak proste su a treba sa ich len naucit, najsor reversnem array, potom ho reversnem po k a potom od k
+    public void rotate2(int[] nums, int k) {
+        k %= nums.length;
+        reverse(nums, 0, nums.length - 1);
+        reverse(nums, 0, k - 1);
+        reverse(nums, k, nums.length - 1);
+    }
+
+    public void reverse(int[] nums, int start, int end) {
+        while (start < end) {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
     //prvy takmer instantny solution
     public void rotate(int[] nums, int k) {
 
@@ -40,5 +58,4 @@ public class RotateArray_Medium {
 
         }
     }
-
 }
